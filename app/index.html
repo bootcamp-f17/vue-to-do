@@ -15,20 +15,17 @@
       class="form-control border border-success mb-3 alert-success"
       v-model="newTaskText"
       v-on:keyup.enter="addTask"
-      placeholder="Add a new task"
-    >
+      placeholder="Add a new task">
 
     <ul class="list-group">
       <li 
+        is="task"
+        v-bind:title="task.title"
+        v-bind:id="task.id"
+        v-bind:remove-task="removeTask"
         v-for="task in tasks" 
-        class="list-group-item"
-      >
-        <button 
-          type="button" 
-          v-on:click="removeTask(task.id)"
-          class="btn btn-outline-danger mr-2"
-        >X</button>
-        {{ task.title }}
+        class="list-group-item">
+        
       </li>
     </ul>
 

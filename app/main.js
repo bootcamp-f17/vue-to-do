@@ -1,3 +1,11 @@
+Vue.component('task', {
+
+  template: '<li><button type="button" v-on:click="removeTask(id)" class="btn btn-outline-danger mr-2">X</button>{{ title }}</li>',
+
+  props: ['title', 'id', 'removeTask']
+
+});
+
 var todo_example = new Vue({
 
   el: '#to-do',
