@@ -9,12 +9,28 @@
 
   <h1 class="mt-5 mb-3">Vue To-Do</h1>
 
-  <div id="to-do">
+  <div id="to-do" v-cloak>
 
+    <input  
+      class="form-control border border-success mb-3 alert-success"
+      v-model="newTaskText"
+      v-on:keyup.enter="addTask"
+      placeholder="Add a new task"
+    >
 
-
-
-
+    <ul class="list-group">
+      <li 
+        v-for="task in tasks" 
+        class="list-group-item"
+      >
+        <button 
+          type="button" 
+          v-on:click="removeTask(task.id)"
+          class="btn btn-outline-danger mr-2"
+        >X</button>
+        {{ task.title }}
+      </li>
+    </ul>
 
   </div>
 
